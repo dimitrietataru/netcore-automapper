@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.AutoMapperPrototype.App", "NetCore.AutoMapperPrototype.App\NetCore.AutoMapperPrototype.App.csproj", "{088465DD-11EE-40E9-BBB3-20D10306596F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.AutoMapperPrototype.App.Test.Integration", "NetCore.AutoMapperPrototype.App.Test.Integration\NetCore.AutoMapperPrototype.App.Test.Integration.csproj", "{9FD62DD9-12F5-4198-A201-0AE9574E46D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetCore.AutoMapperPrototype.App.Test.Unit", "NetCore.AutoMapperPrototype.App.Test.Unit\NetCore.AutoMapperPrototype.App.Test.Unit.csproj", "{A6BBDAD1-07D6-4F24-A1E1-F1252C571D04}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{088465DD-11EE-40E9-BBB3-20D10306596F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088465DD-11EE-40E9-BBB3-20D10306596F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088465DD-11EE-40E9-BBB3-20D10306596F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088465DD-11EE-40E9-BBB3-20D10306596F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9FD62DD9-12F5-4198-A201-0AE9574E46D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9FD62DD9-12F5-4198-A201-0AE9574E46D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9FD62DD9-12F5-4198-A201-0AE9574E46D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9FD62DD9-12F5-4198-A201-0AE9574E46D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BBDAD1-07D6-4F24-A1E1-F1252C571D04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BBDAD1-07D6-4F24-A1E1-F1252C571D04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BBDAD1-07D6-4F24-A1E1-F1252C571D04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BBDAD1-07D6-4F24-A1E1-F1252C571D04}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {47C3A573-CF63-42F0-86AC-60308C3E4450}
+	EndGlobalSection
+EndGlobal
