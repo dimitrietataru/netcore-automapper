@@ -46,5 +46,14 @@ public class AutoMapperProfile : AutoMapper.Profile
 
 ### Configure Dependency Injection
 ``` csharp
-// ..
+using AutoMapper;
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // ..
+
+    services.AddAutoMapper(typeof(Startup));
+    
+    // ..
+}
 ```

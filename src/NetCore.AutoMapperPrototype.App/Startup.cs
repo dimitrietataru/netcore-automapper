@@ -1,3 +1,4 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -18,6 +19,8 @@ namespace NetCore.AutoMapperPrototype.App
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton(configuration);
+
+            services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
         }
