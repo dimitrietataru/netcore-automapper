@@ -34,54 +34,54 @@ namespace NetCore.AutoMapperPrototype.App.Controllers
 
         [HttpPost]
         [Route("api/v1/map/test-bar")]
-        public IActionResult TestBarMapping([FromBody] InnerBarDto dto)
+        public IActionResult TestBarMapping([FromBody] BarDto dto)
         {
-            var bar = mapper.Map<InnerBar>(dto);
+            var bar = mapper.Map<Bar>(dto);
 
             return Ok(bar);
         }
 
         [HttpPost]
         [Route("api/v1/map/test-bars")]
-        public IActionResult TestBarsMapping([FromBody] ICollection<InnerBarDto> dtos)
+        public IActionResult TestBarsMapping([FromBody] ICollection<BarDto> dtos)
         {
-            var bars = mapper.Map<IEnumerable<InnerBar>>(dtos);
+            var bars = mapper.Map<IEnumerable<Bar>>(dtos);
 
             return Ok(bars);
         }
 
         [HttpPost]
         [Route("api/v1/map/test-fizz")]
-        public IActionResult TestFizzMapping([FromBody] InnerFizzDto dto)
+        public IActionResult TestFizzMapping([FromBody] FizzDto dto)
         {
-            var fizz = mapper.Map<InnerFizz>(dto);
+            var fizz = mapper.Map<Fizz>(dto);
 
             return Ok(fizz);
         }
 
         [HttpPost]
         [Route("api/v1/map/test-fizzes")]
-        public IActionResult TestFizzesMapping([FromBody] ICollection<InnerFizzDto> dtos)
+        public IActionResult TestFizzesMapping([FromBody] ICollection<FizzDto> dtos)
         {
-            var fizzes = mapper.Map<IEnumerable<InnerFizz>>(dtos);
+            var fizzes = mapper.Map<IEnumerable<Fizz>>(dtos);
 
             return Ok(fizzes);
         }
 
         [HttpPost]
         [Route("api/v1/map/test-buzz")]
-        public IActionResult TestBuzzMapping([FromBody] SubInnerBuzzDto dto)
+        public IActionResult TestBuzzMapping([FromBody] BuzzDto dto)
         {
-            var buzz = mapper.Map<SubInnerBuzz>(dto);
+            var buzz = mapper.Map<Buzz>(dto);
 
             return Ok(buzz);
         }
 
         [HttpPost]
         [Route("api/v1/map/test-buzzes")]
-        public IActionResult TestBuzzesMapping([FromBody] ICollection<SubInnerBuzzDto> dtos)
+        public IActionResult TestBuzzesMapping([FromBody] ICollection<BuzzDto> dtos)
         {
-            var buzzes = mapper.Map<IEnumerable<SubInnerBuzz>>(dtos);
+            var buzzes = mapper.Map<IEnumerable<Buzz>>(dtos);
 
             return Ok(buzzes);
         }

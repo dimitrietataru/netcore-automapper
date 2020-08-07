@@ -29,12 +29,12 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
             // Arrange
             var fooDto = new FooDto
             {
-                StringValue = "test",
+                StringValue = "foo",
                 IntValue = 1,
                 DoubleValue = 1.0D,
                 BooleanValue = true,
                 Bar = null,
-                Fizzes = new List<InnerFizzDto>()
+                Fizzes = new List<FizzDto>()
             };
 
             // Act
@@ -71,30 +71,30 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
             {
                 new FooDto
                 {
-                    StringValue = "fo",
+                    StringValue = "foo",
                     IntValue = 1,
                     DoubleValue = 1.0D,
                     BooleanValue = true,
                     Bar = null,
-                    Fizzes = new List<InnerFizzDto>()
-                },
-                new FooDto
-                {
-                    StringValue = "foo",
-                    IntValue = 2,
-                    DoubleValue = 2.0D,
-                    BooleanValue = false,
-                    Bar = null,
-                    Fizzes = new List<InnerFizzDto>()
+                    Fizzes = new List<FizzDto>()
                 },
                 new FooDto
                 {
                     StringValue = "fooo",
+                    IntValue = 2,
+                    DoubleValue = 2.0D,
+                    BooleanValue = false,
+                    Bar = null,
+                    Fizzes = new List<FizzDto>()
+                },
+                new FooDto
+                {
+                    StringValue = "foooo",
                     IntValue = 3,
                     DoubleValue = 3.0D,
                     BooleanValue = true,
                     Bar = null,
-                    Fizzes = new List<InnerFizzDto>()
+                    Fizzes = new List<FizzDto>()
                 }
             };
 
@@ -138,233 +138,233 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
         }
 
         [Fact]
-        internal void GivenMapFromInnerBarDtoToInnerBarWhenSourceIsNotNullThenMapsData()
+        internal void GivenMapFromBarDtoToBarWhenSourceIsNotNullThenMapsData()
         {
             // Arrange
-            var barDto = new InnerBarDto
+            var barDto = new BarDto
             {
-                Value = "test"
+                Value = "bar"
             };
 
             // Act
-            var bar = mapper.Map<InnerBar>(barDto);
+            var bar = mapper.Map<Bar>(barDto);
 
             // Assert
-            bar.Should().NotBeNull().And.BeOfType<InnerBar>();
+            bar.Should().NotBeNull().And.BeOfType<Bar>();
             bar.Value.Should().Be(barDto.Value);
         }
 
         [Fact]
-        internal void GivenMapFromInnerBarDtoToInnerBarWhenSourceIsNullThenMapsNoData()
+        internal void GivenMapFromBarDtoToBarWhenSourceIsNullThenMapsNoData()
         {
             // Arrange
-            var barDto = (InnerBarDto)null;
+            var barDto = (BarDto)null;
 
             // Act
-            var bar = mapper.Map<InnerBar>(barDto);
+            var bar = mapper.Map<Bar>(barDto);
 
             // Assert
             bar.Should().BeNull();
         }
 
         [Fact]
-        internal void GivenCollectionMapFromInnerBarDtoToInnerBarWhenSourceIsNotEmptyThenMapsData()
+        internal void GivenCollectionMapFromBarDtoToBarWhenSourceIsNotEmptyThenMapsData()
         {
             // Arrange
-            var barDtos = new List<InnerBarDto>
+            var barDtos = new List<BarDto>
             {
-                new InnerBarDto
+                new BarDto
                 {
                     Value = "bar"
                 },
-                new InnerBarDto
+                new BarDto
                 {
                     Value = "barr"
                 },
-                new InnerBarDto
+                new BarDto
                 {
                     Value = "barrr"
                 }
             };
 
             // Act
-            var bars = mapper.Map<IEnumerable<InnerBar>>(barDtos);
+            var bars = mapper.Map<IEnumerable<Bar>>(barDtos);
 
             // Assert
-            bars.Should().NotBeNull().And.BeAssignableTo<IEnumerable<InnerBar>>();
+            bars.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Bar>>();
             bars.Should().NotBeEmpty().And.HaveCount(3);
-            (bars as IList<InnerBar>)[0].Value.Should().Be(barDtos[0].Value);
-            (bars as IList<InnerBar>)[1].Value.Should().Be(barDtos[1].Value);
-            (bars as IList<InnerBar>)[2].Value.Should().Be(barDtos[2].Value);
+            (bars as IList<Bar>)[0].Value.Should().Be(barDtos[0].Value);
+            (bars as IList<Bar>)[1].Value.Should().Be(barDtos[1].Value);
+            (bars as IList<Bar>)[2].Value.Should().Be(barDtos[2].Value);
         }
 
         [Fact]
-        internal void GivenCollectionMapFromInnerBarDtoToInnerBarWhenSourceIsEmptyThenMapsNoData()
+        internal void GivenCollectionMapFromBarDtoToBarWhenSourceIsEmptyThenMapsNoData()
         {
             // Arrange
-            var barDtos = new List<InnerBarDto>();
+            var barDtos = new List<BarDto>();
 
             // Act
-            var bars = mapper.Map<IEnumerable<InnerBar>>(barDtos);
+            var bars = mapper.Map<IEnumerable<Bar>>(barDtos);
 
             // Assert
-            bars.Should().NotBeNull().And.BeAssignableTo<IEnumerable<InnerBar>>().And.BeEmpty();
+            bars.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Bar>>().And.BeEmpty();
         }
 
         [Fact]
-        internal void GivenMapFromInnerFizzDtoToInnerFizzWhenSourceIsNotNullThenMapsData()
+        internal void GivenMapFromFizzDtoToFizzWhenSourceIsNotNullThenMapsData()
         {
             // Arrange
-            var fizzDto = new InnerFizzDto
+            var fizzDto = new FizzDto
             {
                 Value = "fizz",
-                Buzzes = new List<SubInnerBuzzDto>()
+                Buzzes = new List<BuzzDto>()
             };
 
             // Act
-            var fizz = mapper.Map<InnerFizz>(fizzDto);
+            var fizz = mapper.Map<Fizz>(fizzDto);
 
             // Assert
-            fizz.Should().NotBeNull().And.BeOfType<InnerFizz>();
+            fizz.Should().NotBeNull().And.BeOfType<Fizz>();
             fizz.Value.Should().Be(fizzDto.Value);
             fizz.Buzzes.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
-        internal void GivenMapFromInnerFizzDtoToInnerFizzWhenSourceIsNullThenMapsNoData()
+        internal void GivenMapFromFizzDtoToFizzWhenSourceIsNullThenMapsNoData()
         {
             // Arrange
-            var fizzDto = (InnerFizzDto)null;
+            var fizzDto = (FizzDto)null;
 
             // Act
-            var fizz = mapper.Map<InnerFizz>(fizzDto);
+            var fizz = mapper.Map<Fizz>(fizzDto);
 
             // Assert
             fizz.Should().BeNull();
         }
 
         [Fact]
-        internal void GivenCollectionMapFromInnerFizzDtoToInnerFizzWhenSourceIsNotEmptyThenMapsData()
+        internal void GivenCollectionMapFromFizzDtoToFizzWhenSourceIsNotEmptyThenMapsData()
         {
             // Arrange
-            var fizzDtos = new List<InnerFizzDto>
+            var fizzDtos = new List<FizzDto>
             {
-                new InnerFizzDto
-                {
-                    Value = "fiz",
-                    Buzzes = new List<SubInnerBuzzDto>()
-                },
-                new InnerFizzDto
+                new FizzDto
                 {
                     Value = "fizz",
-                    Buzzes = new List<SubInnerBuzzDto>()
+                    Buzzes = new List<BuzzDto>()
                 },
-                new InnerFizzDto
+                new FizzDto
                 {
                     Value = "fizzz",
-                    Buzzes = new List<SubInnerBuzzDto>()
+                    Buzzes = new List<BuzzDto>()
+                },
+                new FizzDto
+                {
+                    Value = "fizzzz",
+                    Buzzes = new List<BuzzDto>()
                 }
             };
 
             // Act
-            var fizzes = mapper.Map<IEnumerable<InnerFizz>>(fizzDtos);
+            var fizzes = mapper.Map<IEnumerable<Fizz>>(fizzDtos);
 
             // Assert
-            fizzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<InnerFizz>>();
+            fizzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Fizz>>();
             fizzes.Should().NotBeEmpty().And.HaveCount(3);
-            (fizzes as IList<InnerFizz>)[0].Value.Should().Be(fizzDtos[0].Value);
-            (fizzes as IList<InnerFizz>)[0].Buzzes.Should().NotBeNull().And.BeEmpty();
-            (fizzes as IList<InnerFizz>)[1].Value.Should().Be(fizzDtos[1].Value);
-            (fizzes as IList<InnerFizz>)[1].Buzzes.Should().NotBeNull().And.BeEmpty();
-            (fizzes as IList<InnerFizz>)[2].Value.Should().Be(fizzDtos[2].Value);
-            (fizzes as IList<InnerFizz>)[2].Buzzes.Should().NotBeNull().And.BeEmpty();
+            (fizzes as IList<Fizz>)[0].Value.Should().Be(fizzDtos[0].Value);
+            (fizzes as IList<Fizz>)[0].Buzzes.Should().NotBeNull().And.BeEmpty();
+            (fizzes as IList<Fizz>)[1].Value.Should().Be(fizzDtos[1].Value);
+            (fizzes as IList<Fizz>)[1].Buzzes.Should().NotBeNull().And.BeEmpty();
+            (fizzes as IList<Fizz>)[2].Value.Should().Be(fizzDtos[2].Value);
+            (fizzes as IList<Fizz>)[2].Buzzes.Should().NotBeNull().And.BeEmpty();
         }
 
         [Fact]
-        internal void GivenCollectionMapFromInnerFizzDtoToInnerFizzWhenSourceIsEmptyThenMapsNoData()
+        internal void GivenCollectionMapFromFizzDtoToFizzWhenSourceIsEmptyThenMapsNoData()
         {
             // Arrange
-            var fizzDtos = new List<InnerFizzDto>();
+            var fizzDtos = new List<FizzDto>();
 
             // Act
-            var fizzes = mapper.Map<IEnumerable<InnerFizz>>(fizzDtos);
+            var fizzes = mapper.Map<IEnumerable<Fizz>>(fizzDtos);
 
             // Assert
-            fizzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<InnerFizz>>().And.BeEmpty();
+            fizzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Fizz>>().And.BeEmpty();
         }
 
         [Fact]
-        internal void GivenMapFromSubInnerBuzzDtoToSubInnerBuzzWhenSourceIsNotNullThenMapsData()
+        internal void GivenMapFromBuzzDtoToBuzzWhenSourceIsNotNullThenMapsData()
         {
             // Arrange
-            var buzzDto = new SubInnerBuzzDto
+            var buzzDto = new BuzzDto
             {
                 Value = "buzz"
             };
 
             // Act
-            var buzz = mapper.Map<SubInnerBuzz>(buzzDto);
+            var buzz = mapper.Map<Buzz>(buzzDto);
 
             // Assert
-            buzz.Should().NotBeNull().And.BeOfType<SubInnerBuzz>();
+            buzz.Should().NotBeNull().And.BeOfType<Buzz>();
             buzz.Value.Should().Be(buzzDto.Value);
         }
 
         [Fact]
-        internal void GivenMapFromSubInnerBuzzDtoToSubInnerBuzzWhenSourceIsNullThenMapsNoData()
+        internal void GivenMapFromBuzzDtoToBuzzWhenSourceIsNullThenMapsNoData()
         {
             // Arrange
-            var buzzDto = (SubInnerBuzzDto)null;
+            var buzzDto = (BuzzDto)null;
 
             // Act
-            var buzz = mapper.Map<SubInnerBuzz>(buzzDto);
+            var buzz = mapper.Map<Buzz>(buzzDto);
 
             // Assert
             buzz.Should().BeNull();
         }
 
         [Fact]
-        internal void GivenCollectionMapFromSubInnerBuzzDtoToSubInnerBuzzWhenSourceIsNotEmptyThenMapsData()
+        internal void GivenCollectionMapFromBuzzDtoToBuzzWhenSourceIsNotEmptyThenMapsData()
         {
             // Arrange
-            var buzzDtos = new List<SubInnerBuzzDto>
+            var buzzDtos = new List<BuzzDto>
             {
-                new SubInnerBuzzDto
-                {
-                    Value = "buz"
-                },
-                new SubInnerBuzzDto
+                new BuzzDto
                 {
                     Value = "buzz"
                 },
-                new SubInnerBuzzDto
+                new BuzzDto
                 {
                     Value = "buzzz"
+                },
+                new BuzzDto
+                {
+                    Value = "buzzzz"
                 }
             };
 
             // Act
-            var buzzes = mapper.Map<IEnumerable<SubInnerBuzz>>(buzzDtos);
+            var buzzes = mapper.Map<IEnumerable<Buzz>>(buzzDtos);
 
             // Assert
-            buzzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<SubInnerBuzz>>();
+            buzzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Buzz>>();
             buzzes.Should().NotBeEmpty().And.HaveCount(3);
-            (buzzes as IList<SubInnerBuzz>)[0].Value.Should().Be(buzzDtos[0].Value);
-            (buzzes as IList<SubInnerBuzz>)[1].Value.Should().Be(buzzDtos[1].Value);
-            (buzzes as IList<SubInnerBuzz>)[2].Value.Should().Be(buzzDtos[2].Value);
+            (buzzes as IList<Buzz>)[0].Value.Should().Be(buzzDtos[0].Value);
+            (buzzes as IList<Buzz>)[1].Value.Should().Be(buzzDtos[1].Value);
+            (buzzes as IList<Buzz>)[2].Value.Should().Be(buzzDtos[2].Value);
         }
 
         [Fact]
-        internal void GivenCollectionMapFromSubInnerBuzzDtoToSubInnerBuzzWhenSourceIsEmptyThenMapsNoData()
+        internal void GivenCollectionMapFromBuzzDtoToBuzzWhenSourceIsEmptyThenMapsNoData()
         {
             // Arrange
-            var buzzDtos = new List<SubInnerBuzzDto>();
+            var buzzDtos = new List<BuzzDto>();
 
             // Act
-            var buzzes = mapper.Map<IEnumerable<SubInnerBuzz>>(buzzDtos);
+            var buzzes = mapper.Map<IEnumerable<Buzz>>(buzzDtos);
 
             // Assert
-            buzzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<SubInnerBuzz>>().And.BeEmpty();
+            buzzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Buzz>>().And.BeEmpty();
         }
     }
 }

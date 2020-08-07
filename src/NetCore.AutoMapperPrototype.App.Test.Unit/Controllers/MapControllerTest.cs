@@ -65,18 +65,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<InnerBar>(It.IsAny<InnerBarDto>()))
-                .Returns(It.IsAny<InnerBar>())
+                .Setup(_ => _.Map<Bar>(It.IsAny<BarDto>()))
+                .Returns(It.IsAny<Bar>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestBarMapping(It.IsAny<InnerBarDto>());
+            var result = mapController.TestBarMapping(It.IsAny<BarDto>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<InnerBar>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<Bar>());
         }
 
         [Fact]
@@ -84,18 +84,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<IEnumerable<InnerBar>>(It.IsAny<ICollection<InnerBarDto>>()))
-                .Returns(It.IsAny<IEnumerable<InnerBar>>())
+                .Setup(_ => _.Map<IEnumerable<Bar>>(It.IsAny<ICollection<BarDto>>()))
+                .Returns(It.IsAny<IEnumerable<Bar>>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestBarsMapping(It.IsAny<ICollection<InnerBarDto>>());
+            var result = mapController.TestBarsMapping(It.IsAny<ICollection<BarDto>>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<InnerBar>>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<Bar>>());
         }
 
         [Fact]
@@ -103,18 +103,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<InnerFizz>(It.IsAny<InnerFizzDto>()))
-                .Returns(It.IsAny<InnerFizz>())
+                .Setup(_ => _.Map<Fizz>(It.IsAny<FizzDto>()))
+                .Returns(It.IsAny<Fizz>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestFizzMapping(It.IsAny<InnerFizzDto>());
+            var result = mapController.TestFizzMapping(It.IsAny<FizzDto>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<InnerFizz>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<Fizz>());
         }
 
         [Fact]
@@ -122,18 +122,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<IEnumerable<InnerFizz>>(It.IsAny<ICollection<InnerFizzDto>>()))
-                .Returns(It.IsAny<IEnumerable<InnerFizz>>())
+                .Setup(_ => _.Map<IEnumerable<Fizz>>(It.IsAny<ICollection<FizzDto>>()))
+                .Returns(It.IsAny<IEnumerable<Fizz>>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestFizzesMapping(It.IsAny<ICollection<InnerFizzDto>>());
+            var result = mapController.TestFizzesMapping(It.IsAny<ICollection<FizzDto>>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<InnerFizz>>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<Fizz>>());
         }
 
         [Fact]
@@ -141,18 +141,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<SubInnerBuzz>(It.IsAny<SubInnerBuzzDto>()))
-                .Returns(It.IsAny<SubInnerBuzz>())
+                .Setup(_ => _.Map<Buzz>(It.IsAny<BuzzDto>()))
+                .Returns(It.IsAny<Buzz>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestBuzzMapping(It.IsAny<SubInnerBuzzDto>());
+            var result = mapController.TestBuzzMapping(It.IsAny<BuzzDto>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<SubInnerBuzz>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<Buzz>());
         }
 
         [Fact]
@@ -160,18 +160,18 @@ namespace NetCore.AutoMapperPrototype.App.Test.Unit.Controllers
         {
             // Arrange
             mockMapper
-                .Setup(_ => _.Map<IEnumerable<SubInnerBuzz>>(It.IsAny<ICollection<SubInnerBuzzDto>>()))
-                .Returns(It.IsAny<IEnumerable<SubInnerBuzz>>())
+                .Setup(_ => _.Map<IEnumerable<Buzz>>(It.IsAny<ICollection<BuzzDto>>()))
+                .Returns(It.IsAny<IEnumerable<Buzz>>())
                 .Verifiable();
 
             // Act
-            var result = mapController.TestBuzzesMapping(It.IsAny<ICollection<SubInnerBuzzDto>>());
+            var result = mapController.TestBuzzesMapping(It.IsAny<ICollection<BuzzDto>>());
 
             // Assert
             mockMapper.Verify();
             result.Should().NotBeNull().And.BeOfType<OkObjectResult>();
             (result as OkObjectResult).StatusCode.Should().Be((int)HttpStatusCode.OK);
-            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<SubInnerBuzz>>());
+            (result as OkObjectResult).Value.Should().Be(It.IsAny<IEnumerable<Buzz>>());
         }
     }
 }

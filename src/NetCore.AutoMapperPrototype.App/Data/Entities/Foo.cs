@@ -9,7 +9,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Entities
         public double DoubleValue { get; set; }
         public bool BooleanValue { get; set; }
 
-        public InnerBar Bar { get; set; }
-        public IEnumerable<InnerFizz> Fizzes { get; set; } = new List<InnerFizz>();
+        public Bar Bar { get; set; }
+        public IEnumerable<Fizz> Fizzes { get; set; } = new List<Fizz>();
     }
 }

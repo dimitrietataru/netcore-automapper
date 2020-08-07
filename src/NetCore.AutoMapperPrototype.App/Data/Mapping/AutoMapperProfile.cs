@@ -32,14 +32,14 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     options => options.MapFrom(source => source.Fizzes))
                 .ForAllOtherMembers(options => options.Ignore());
 
-            CreateMap<InnerBarDto, InnerBar>()
+            CreateMap<BarDto, Bar>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
                     destination => destination.Value,
                     options => options.MapFrom(source => source.Value))
                 .ForAllOtherMembers(options => options.Ignore());
 
-            CreateMap<InnerFizzDto, InnerFizz>()
+            CreateMap<FizzDto, Fizz>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
                     destination => destination.Value,
@@ -49,7 +49,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     options => options.MapFrom(source => source.Buzzes))
                 .ForAllOtherMembers(options => options.Ignore());
 
-            CreateMap<SubInnerBuzzDto, SubInnerBuzz>()
+            CreateMap<BuzzDto, Buzz>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
                     destination => destination.Value,

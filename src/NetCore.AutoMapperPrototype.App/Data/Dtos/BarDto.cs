@@ -2,7 +2,7 @@
 
 namespace NetCore.AutoMapperPrototype.App.Data.Dtos
 {
-    public sealed class SubInnerBuzzDto
+    public sealed class BarDto
     {
         [Required]
         [MaxLength(100)]

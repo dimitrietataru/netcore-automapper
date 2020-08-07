@@ -21,9 +21,9 @@ namespace NetCore.AutoMapperPrototype.App.Data.Dtos
         public bool BooleanValue { get; set; }
 
         [Required]
-        public InnerBarDto Bar { get; set; }
+        public BarDto Bar { get; set; }
 
         [Required]
-        public IEnumerable<InnerFizzDto> Fizzes { get; set; } = new List<InnerFizzDto>();
+        public IEnumerable<FizzDto> Fizzes { get; set; } = new List<FizzDto>();
     }
 }
