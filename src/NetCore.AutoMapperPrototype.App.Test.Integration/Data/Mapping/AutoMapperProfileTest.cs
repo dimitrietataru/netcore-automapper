@@ -43,9 +43,9 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
             // Assert
             foo.Should().NotBeNull().And.BeOfType<Foo>();
             foo.StringValue.Should().Be(fooDto.StringValue);
-            foo.IntValue.Should().Be(fooDto.IntValue);
+            foo.IntValue.Should().Be(fooDto.IntValue * 10);
             foo.DoubleValue.Should().Be(fooDto.DoubleValue);
-            foo.BooleanValue.Should().Be(fooDto.BooleanValue);
+            foo.BooleanValue.Should().Be(!fooDto.BooleanValue);
             foo.Bar.Should().BeNull();
             foo.Fizzes.Should().NotBeNull().And.BeEmpty();
         }
@@ -105,21 +105,21 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
             foos.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Foo>>();
             foos.Should().NotBeEmpty().And.HaveCount(3);
             (foos as IList<Foo>)[0].StringValue.Should().Be(fooDtos[0].StringValue);
-            (foos as IList<Foo>)[0].IntValue.Should().Be(fooDtos[0].IntValue);
+            (foos as IList<Foo>)[0].IntValue.Should().Be(fooDtos[0].IntValue * 10);
             (foos as IList<Foo>)[0].DoubleValue.Should().Be(fooDtos[0].DoubleValue);
-            (foos as IList<Foo>)[0].BooleanValue.Should().Be(fooDtos[0].BooleanValue);
+            (foos as IList<Foo>)[0].BooleanValue.Should().Be(!fooDtos[0].BooleanValue);
             (foos as IList<Foo>)[0].Bar.Should().BeNull();
             (foos as IList<Foo>)[0].Fizzes.Should().NotBeNull().And.BeEmpty();
             (foos as IList<Foo>)[1].StringValue.Should().Be(fooDtos[1].StringValue);
-            (foos as IList<Foo>)[1].IntValue.Should().Be(fooDtos[1].IntValue);
+            (foos as IList<Foo>)[1].IntValue.Should().Be(fooDtos[1].IntValue * 10);
             (foos as IList<Foo>)[1].DoubleValue.Should().Be(fooDtos[1].DoubleValue);
-            (foos as IList<Foo>)[1].BooleanValue.Should().Be(fooDtos[1].BooleanValue);
+            (foos as IList<Foo>)[1].BooleanValue.Should().Be(!fooDtos[1].BooleanValue);
             (foos as IList<Foo>)[1].Bar.Should().BeNull();
             (foos as IList<Foo>)[1].Fizzes.Should().NotBeNull().And.BeEmpty();
             (foos as IList<Foo>)[2].StringValue.Should().Be(fooDtos[2].StringValue);
-            (foos as IList<Foo>)[2].IntValue.Should().Be(fooDtos[2].IntValue);
+            (foos as IList<Foo>)[2].IntValue.Should().Be(fooDtos[2].IntValue * 10);
             (foos as IList<Foo>)[2].DoubleValue.Should().Be(fooDtos[2].DoubleValue);
-            (foos as IList<Foo>)[2].BooleanValue.Should().Be(fooDtos[2].BooleanValue);
+            (foos as IList<Foo>)[2].BooleanValue.Should().Be(!fooDtos[2].BooleanValue);
             (foos as IList<Foo>)[2].Bar.Should().BeNull();
             (foos as IList<Foo>)[2].Fizzes.Should().NotBeNull().And.BeEmpty();
         }
@@ -307,7 +307,7 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
 
             // Assert
             buzz.Should().NotBeNull().And.BeOfType<Buzz>();
-            buzz.Value.Should().Be(buzzDto.Value);
+            buzz.Value.Should().Be($"Value: { buzzDto.Value }");
         }
 
         [Fact]
@@ -349,9 +349,9 @@ namespace NetCore.AutoMapperPrototype.App.Test.Integration.Data.Mapping
             // Assert
             buzzes.Should().NotBeNull().And.BeAssignableTo<IEnumerable<Buzz>>();
             buzzes.Should().NotBeEmpty().And.HaveCount(3);
-            (buzzes as IList<Buzz>)[0].Value.Should().Be(buzzDtos[0].Value);
-            (buzzes as IList<Buzz>)[1].Value.Should().Be(buzzDtos[1].Value);
-            (buzzes as IList<Buzz>)[2].Value.Should().Be(buzzDtos[2].Value);
+            (buzzes as IList<Buzz>)[0].Value.Should().Be($"Value: { buzzDtos[0].Value }");
+            (buzzes as IList<Buzz>)[1].Value.Should().Be($"Value: { buzzDtos[1].Value }");
+            (buzzes as IList<Buzz>)[2].Value.Should().Be($"Value: { buzzDtos[2].Value }");
         }
 
         [Fact]

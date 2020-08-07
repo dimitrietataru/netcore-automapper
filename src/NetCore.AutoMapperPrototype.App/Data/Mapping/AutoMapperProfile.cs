@@ -17,19 +17,25 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     options => options.MapFrom(source => source.StringValue))
                 .ForMember(
                     destination => destination.IntValue,
-                    options => options.MapFrom(source => source.IntValue))
+                    options => options.Ignore())
                 .ForMember(
                     destination => destination.DoubleValue,
                     options => options.MapFrom(source => source.DoubleValue))
                 .ForMember(
                     destination => destination.BooleanValue,
-                    options => options.MapFrom(source => source.BooleanValue))
+                    options => options.Ignore())
                 .ForMember(
                     destination => destination.Bar,
                     options => options.MapFrom(source => source.Bar))
                 .ForMember(
                     destination => destination.Fizzes,
                     options => options.MapFrom(source => source.Fizzes))
+                .AfterMap(
+                    (source, destination) =>
+                    {
+                        destination.IntValue = source.IntValue * 10;
+                        destination.BooleanValue = !source.BooleanValue;
+                    })
                 .ForAllOtherMembers(options => options.Ignore());
 
             CreateMap<BarDto, Bar>()
@@ -54,6 +60,11 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                 .ForMember(
                     destination => destination.Value,
                     options => options.MapFrom(source => source.Value))
+                .AfterMap(
+                    (source, destination) =>
+                    {
+                        destination.Value = $"Value: { destination.Value }";
+                    })
                 .ForAllOtherMembers(options => options.Ignore());
         }
     }
