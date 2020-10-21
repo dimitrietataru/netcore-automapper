@@ -1,12 +1,12 @@
 # .NET Core - AutoMapper
 
-### Install
+## Install
 ``` powershell
-PM> Install-Package AutoMapper -Version 10.0.0
-PM> Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 8.0.1
+PM> Install-Package AutoMapper -Version 10.1.1
+PM> Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 8.1.0
 ```
 
-### Configure Profiles
+## Configure Profiles
 ``` csharp
 public class AutoMapperProfile : AutoMapper.Profile
 {
@@ -44,7 +44,7 @@ public class AutoMapperProfile : AutoMapper.Profile
 }
 ```
 
-### Configure Dependency Injection
+## Configure Dependency Injection
 ``` csharp
 using AutoMapper;
 
