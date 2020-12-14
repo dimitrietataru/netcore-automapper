@@ -1,4 +1,4 @@
-# .NET Core - AutoMapper
+# .NET - AutoMapper
 
 ## Install
 ``` powershell
