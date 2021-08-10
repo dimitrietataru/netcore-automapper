@@ -3,7 +3,7 @@
 ## Install
 ``` powershell
 PM> Install-Package AutoMapper -Version 10.1.1
-PM> Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 8.1.0
+PM> Install-Package AutoMapper.Extensions.Microsoft.DependencyInjection -Version 8.1.1
 ```
 
 ## Configure Profiles
