@@ -10,6 +10,14 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
     {
         public AutoMapperProfile()
         {
+            RegisterFooMappingProfiles();
+            RegisterBarMappingProfiles();
+            RegisterFizzMappingProfiles();
+            RegisterBuzzMappingProfiles();
+        }
+
+        private void RegisterFooMappingProfiles()
+        {
             CreateMap<FooDto, Foo>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
@@ -37,14 +45,20 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                         destination.BooleanValue = !source.BooleanValue;
                     })
                 .ForAllOtherMembers(options => options.Ignore());
+        }
 
+        private void RegisterBarMappingProfiles()
+        {
             CreateMap<BarDto, Bar>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
                     destination => destination.Value,
                     options => options.MapFrom(source => source.Value))
                 .ForAllOtherMembers(options => options.Ignore());
+        }
 
+        private void RegisterFizzMappingProfiles()
+        {
             CreateMap<FizzDto, Fizz>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
@@ -54,7 +68,10 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     destination => destination.Buzzes,
                     options => options.MapFrom(source => source.Buzzes))
                 .ForAllOtherMembers(options => options.Ignore());
+        }
 
+        private void RegisterBuzzMappingProfiles()
+        {
             CreateMap<BuzzDto, Buzz>()
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(

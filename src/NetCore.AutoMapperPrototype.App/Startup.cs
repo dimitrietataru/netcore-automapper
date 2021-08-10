@@ -1,7 +1,5 @@
-using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -9,17 +7,8 @@ namespace NetCore.AutoMapperPrototype.App
 {
     public sealed class Startup
     {
-        private readonly IConfiguration configuration;
-
-        public Startup(IConfiguration configuration)
-        {
-            this.configuration = configuration;
-        }
-
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton(configuration);
-
             services.AddAutoMapper(typeof(Startup));
 
             services.AddControllers();
