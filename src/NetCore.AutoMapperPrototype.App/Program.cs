@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace NetCore.AutoMapperPrototype.App
 {
-    public sealed class Program
+    public static class Program
     {
         public static async Task Main(string[] args)
         {
