@@ -1,0 +1,12 @@
+﻿global using AutoMapper;
+global using Microsoft.AspNetCore.Builder;
+global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using NetCore.AutoMapperPrototype.App;
+global using NetCore.AutoMapperPrototype.App.Data.Dtos;
+global using NetCore.AutoMapperPrototype.App.Data.Entities;
+global using System.Collections.Generic;
+global using System.ComponentModel.DataAnnotations;
+global using System.Diagnostics;

@@ -1,15 +1,11 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿namespace NetCore.AutoMapperPrototype.App.Data.Dtos;
 
-namespace NetCore.AutoMapperPrototype.App.Data.Dtos
+public sealed class FizzDto
 {
-    public sealed class FizzDto
-    {
-        [Required]
-        [MaxLength(100)]
-        public string Value { get; set; }
+    [Required]
+    [MaxLength(100)]
+    public string? Value { get; set; }
 
-        [Required]
-        public IEnumerable<BuzzDto> Buzzes { get; set; } = new List<BuzzDto>();
-    }
+    [Required]
+    public IEnumerable<BuzzDto> Buzzes { get; set; } = new List<BuzzDto>();
 }

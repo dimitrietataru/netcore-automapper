@@ -1,7 +1,6 @@
-﻿namespace NetCore.AutoMapperPrototype.App.Data.Entities
+﻿namespace NetCore.AutoMapperPrototype.App.Data.Entities;
+
+public sealed class Buzz
 {
-    public sealed class Buzz
-    {
-        public string Value { get; set; }
-    }
+    public string? Value { get; set; }
 }
