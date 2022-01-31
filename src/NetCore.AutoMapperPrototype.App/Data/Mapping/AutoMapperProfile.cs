@@ -43,8 +43,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     {
                         destination.IntValue = source.IntValue * 10;
                         destination.BooleanValue = !source.BooleanValue;
-                    })
-                .ForAllOtherMembers(options => options.Ignore());
+                    });
         }
 
         private void RegisterBarMappingProfiles()
@@ -53,8 +52,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                 .IgnoreAllPropertiesWithAnInaccessibleSetter()
                 .ForMember(
                     destination => destination.Value,
-                    options => options.MapFrom(source => source.Value))
-                .ForAllOtherMembers(options => options.Ignore());
+                    options => options.MapFrom(source => source.Value));
         }
 
         private void RegisterFizzMappingProfiles()
@@ -66,8 +64,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     options => options.MapFrom(source => source.Value))
                 .ForMember(
                     destination => destination.Buzzes,
-                    options => options.MapFrom(source => source.Buzzes))
-                .ForAllOtherMembers(options => options.Ignore());
+                    options => options.MapFrom(source => source.Buzzes));
         }
 
         private void RegisterBuzzMappingProfiles()
@@ -81,8 +78,7 @@ namespace NetCore.AutoMapperPrototype.App.Data.Mapping
                     (source, destination) =>
                     {
                         destination.Value = $"Value: { destination.Value }";
-                    })
-                .ForAllOtherMembers(options => options.Ignore());
+                    });
         }
     }
 }
